@@ -10,4 +10,5 @@ Specifically, bots cannot cheat - no more than a regular player could.
 	setup
 	programOverview
 	programSafety
+	performance
 	troubleshooting
