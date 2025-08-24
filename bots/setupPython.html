@@ -3,10 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Troubleshooting" href="troubleshooting.html" /><link rel="prev" title="Program Safety" href="programSafety.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Program Overview" href="programOverview.html" /><link rel="prev" title="Setup" href="setup.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
-        <title>Performance - UW API documentation</title>
+        <title>Setup Python - UW API documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=acfd86a5" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -180,7 +180,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -221,10 +221,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../scripts/index.html">Scripts</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Bots</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Bots</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="setup.html">Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="setupPython.html">Setup Python</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Setup Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="programOverview.html">Program Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="programSafety.html">Program Safety</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">Performance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 </ul>
 </li>
@@ -248,7 +248,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../_sources/bots/performance.rst.txt" title="View this page">
+  <a class="muted-link" href="../_sources/bots/setupPython.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -262,41 +262,51 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="performance">
-<h1>Performance<a class="headerlink" href="#performance" title="Link to this heading">¶</a></h1>
-<p>Some hints on improving performance.</p>
-<section id="distribute-work-over-multiple-ticks">
-<h2>Distribute Work Over Multiple Ticks<a class="headerlink" href="#distribute-work-over-multiple-ticks" title="Link to this heading">¶</a></h2>
-<p>Most events in the game take some time: shooting, moving, building, processing, etc.
-Therefore, it is generally unnecessary to keep updating everything all the time.</p>
-<p>It is recommended to split work between multiple ticks to save some cpu time.
-Use switch on <code class="docutils literal notranslate"><span class="pre">workStep++</span> <span class="pre">mod</span> <span class="pre">10</span></code>, and update different systems (eg. analyzing enemies, controlling armies, building, etc..).
-Note the use of <code class="docutils literal notranslate"><span class="pre">workStep</span></code>, which is different variable than the tick provided by the game.
-This is to ensure continuous processing of all systems in case that some game ticks are skipped.</p>
-<p>Be mindful of potential changes in the game state (eg. entities being destroyed) in between processing different systems.</p>
-</section>
-<section id="performance-statistics">
-<h2>Performance Statistics<a class="headerlink" href="#performance-statistics" title="Link to this heading">¶</a></h2>
-<p>The game provides several statistics related to performance, which you can monitor and adapt your program.</p>
-<ul class="simple">
-<li><p>mainThreadUtilization - fraction (0..1) of the time the main thread does any work, vs time it sleeps.</p></li>
-<li><p>ping - network round-trip time measured in milliseconds.</p></li>
-<li><p>networkUp - network bandwidth use measured in KB/s, from client to game server.</p></li>
-<li><p>networkDown - same going from game server to client.</p></li>
-</ul>
-</section>
-<section id="profiling">
-<h2>Profiling<a class="headerlink" href="#profiling" title="Link to this heading">¶</a></h2>
-<p>The game has built-in performance profiler.
-When enabled, it will open a browser with real-time flame-graphs of tasks running on all threads in the game client.</p>
-<p>You may also inject your own profiling events.</p>
-</section>
+          <section id="setup-python">
+<h1>Setup Python<a class="headerlink" href="#setup-python" title="Link to this heading">¶</a></h1>
+<p>Instructions to install Python:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="platform" data-sync-id="windows" for="sd-tab-item-0">
+Windows</label><div class="sd-tab-content docutils">
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do <em>not</em> use <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">install</span> <span class="pre">manager</span></code>. It causes a lot of issues.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>In the installer wizard, make sure to add python to system path.</p>
+</div>
+<p>Install latest stable version of python from: <a class="reference external" href="https://www.python.org/downloads/windows/">https://www.python.org/downloads/windows/</a>.</p>
+<p>Update pip (package manager for python):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="platform" data-sync-id="linux" for="sd-tab-item-1">
+Linux</label><div class="sd-tab-content docutils">
+<p>Install python using system package manager:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-dev<span class="w"> </span>python3-pip
+</pre></div>
+</div>
+</div>
+</div>
+<p>Install mandatory dependencies:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>cffi
+</pre></div>
+</div>
+<p>Optionally install tools for python type checking:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>pyright<span class="w"> </span>mypy<span class="w"> </span>types-cffi
+</pre></div>
+</div>
 </section>
 
         </article>
@@ -304,23 +314,23 @@ When enabled, it will open a browser with real-time flame-graphs of tasks runnin
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="troubleshooting.html">
+          <a class="next-page" href="programOverview.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Troubleshooting</div>
+                <div class="title">Program Overview</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="programSafety.html">
+          <a class="prev-page" href="setup.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Program Safety</div>
+                <div class="title">Setup</div>
                 
               </div>
             </a>
@@ -342,29 +352,8 @@ When enabled, it will open a browser with real-time flame-graphs of tasks runnin
         
       </footer>
     </div>
-    <aside class="toc-drawer">
+    <aside class="toc-drawer no-toc">
       
-      
-      <div class="toc-sticky toc-scroll">
-        <div class="toc-title-container">
-          <span class="toc-title">
-            On this page
-          </span>
-        </div>
-        <div class="toc-tree-container">
-          <div class="toc-tree">
-            <ul>
-<li><a class="reference internal" href="#">Performance</a><ul>
-<li><a class="reference internal" href="#distribute-work-over-multiple-ticks">Distribute Work Over Multiple Ticks</a></li>
-<li><a class="reference internal" href="#performance-statistics">Performance Statistics</a></li>
-<li><a class="reference internal" href="#profiling">Profiling</a></li>
-</ul>
-</li>
-</ul>
-
-          </div>
-        </div>
-      </div>
       
       
     </aside>

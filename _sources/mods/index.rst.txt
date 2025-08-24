@@ -3,7 +3,7 @@ Mods
 Guide on making mods for Unnatural Worlds.
 
 .. warning::
-	Making custom mods is not yet fully supported.
+   Making mods is not yet fully supported.
 
 A mod is a collection of assets that can modify the look and/or behavior of any moddable map.
 It may contain :ref:`prototypes <concepts/prototypes:Prototypes>`, :ref:`scripts <scripts/index:Scripts>`, models, sounds, etc.

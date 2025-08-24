@@ -16,7 +16,7 @@ Threads
 -------
 
 .. important::
-	The api is strictly single-threaded!
+   Entire uwapi is strictly single-threaded!
 
 Hardened Library
 ----------------
@@ -33,11 +33,11 @@ It is recommended to use the optimized (non-hardened) library when not actively 
    .. tab-item:: Python
       :sync: python
 
-      TODO
+      Use ``-O``, eg. ``python -O your_bot.py``, to use the optimized (non-hard) library.
 
    .. tab-item:: C#
       :sync: csharp
 
-      Define ``UW_USE_OPTIMIZED_LIBRARY`` macro to use non-hard library.
+      Define ``UW_USE_OPTIMIZED_LIBRARY`` macro to use the optimized (non-hard) library.
 
 

@@ -5,33 +5,33 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Program State" href="programState.html" /><link rel="prev" title="Resources &amp; Logistics" href="resources.html" />
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
         <title>Combat &amp; Upgrades - UW API documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=acfd86a5" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
 
 
 <style>
   body {
-    --color-code-background: #f8f8f8;
-  --color-code-foreground: black;
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
   
   }
   @media not print {
     body[data-theme="dark"] {
-      --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
+      --color-code-background: #2b2b2b;
+  --color-code-foreground: #f8f8f2;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
-        --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
+        --color-code-background: #2b2b2b;
+  --color-code-foreground: #f8f8f2;
   
       }
     }
@@ -180,7 +180,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -190,7 +190,6 @@
     <div class="sidebar-container">
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
-  
   
   <span class="sidebar-brand-text">UW API  documentation</span>
   
@@ -222,6 +221,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../scripts/index.html">Scripts</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../bots/index.html">Bots</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Bots</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../bots/setup.html">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bots/setupPython.html">Setup Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bots/programOverview.html">Program Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bots/programSafety.html">Program Safety</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bots/performance.html">Performance</a></li>
@@ -262,7 +262,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -270,6 +270,52 @@
         <article role="main" id="furo-main-content">
           <section id="combat-upgrades">
 <h1>Combat &amp; Upgrades<a class="headerlink" href="#combat-upgrades" title="Link to this heading">¶</a></h1>
+<section id="shooting">
+<h2>Shooting<a class="headerlink" href="#shooting" title="Link to this heading">¶</a></h2>
+<p>todo</p>
+<section id="visibility">
+<h3>Visibility<a class="headerlink" href="#visibility" title="Link to this heading">¶</a></h3>
+<p>todo</p>
+</section>
+<section id="elevation">
+<h3>Elevation<a class="headerlink" href="#elevation" title="Link to this heading">¶</a></h3>
+<p>todo</p>
+</section>
+</section>
+<section id="explosions">
+<h2>Explosions<a class="headerlink" href="#explosions" title="Link to this heading">¶</a></h2>
+<p>A unit may have any combination (or none) of the following triggers:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">explodesWhenAttacks</span></code> - suicidal unit.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">explodesWhenKilled</span></code> - explodes when the unit is naturally killed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">explodesWhenSelfDestructed</span></code> - explodes when the unit receives self-destruct command from owner.</p></li>
+</ul>
+<p>When a unit explodes, it does splash damage in area around it.
+Damage type of the explosion may be different from shooting.</p>
+</section>
+<section id="splash">
+<h2>Splash<a class="headerlink" href="#splash" title="Link to this heading">¶</a></h2>
+<p>Splash means the damage is an area-of-effect.
+It is centered at the target of shooting, or at the unit that explodes, and is circular with specified radius.</p>
+<p>Damage of splash decreases with distance from center, which is determined by <code class="docutils literal notranslate"><span class="pre">splashFractionAtEdge</span></code>.
+It may also affect own/ally units, depending on <code class="docutils literal notranslate"><span class="pre">splashFractionToFriendly</span></code>.</p>
+</section>
+<section id="damage-and-armor-types">
+<h2>Damage And Armor Types<a class="headerlink" href="#damage-and-armor-types" title="Link to this heading">¶</a></h2>
+<p>Each unit has associated armor type, and each shooting (or explosion) has associated damage type.
+The game has a table that defines a fraction for each combination of damage type with each armor type.
+Some values are over 100 % and some are below.</p>
+<p>For example, energy shield is designed to be highly resistant to lasers and plasma, which are most often used in long-range guns; and antimatter guns are designed for destroying buildings.</p>
+</section>
+<section id="life-regeneration">
+<h2>Life Regeneration<a class="headerlink" href="#life-regeneration" title="Link to this heading">¶</a></h2>
+<p>Life regeneration has a delay, which is extended whenever the unit is attacked, or whenever the unit itself shoots.
+When the delay expires, the unit starts healing at the specified rate.</p>
+</section>
+<section id="upgrades">
+<h2>Upgrades<a class="headerlink" href="#upgrades" title="Link to this heading">¶</a></h2>
+<p>todo</p>
+</section>
 </section>
 
         </article>
@@ -315,8 +361,36 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Combat &amp; Upgrades</a><ul>
+<li><a class="reference internal" href="#shooting">Shooting</a><ul>
+<li><a class="reference internal" href="#visibility">Visibility</a></li>
+<li><a class="reference internal" href="#elevation">Elevation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#explosions">Explosions</a></li>
+<li><a class="reference internal" href="#splash">Splash</a></li>
+<li><a class="reference internal" href="#damage-and-armor-types">Damage And Armor Types</a></li>
+<li><a class="reference internal" href="#life-regeneration">Life Regeneration</a></li>
+<li><a class="reference internal" href="#upgrades">Upgrades</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
@@ -324,7 +398,7 @@
 </div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>

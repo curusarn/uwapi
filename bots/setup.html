@@ -3,35 +3,35 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Program Overview" href="programOverview.html" /><link rel="prev" title="Bots" href="index.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Setup Python" href="setupPython.html" /><link rel="prev" title="Bots" href="index.html" />
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
         <title>Setup - UW API documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=acfd86a5" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
 
 
 <style>
   body {
-    --color-code-background: #f8f8f8;
-  --color-code-foreground: black;
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
   
   }
   @media not print {
     body[data-theme="dark"] {
-      --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
+      --color-code-background: #2b2b2b;
+  --color-code-foreground: #f8f8f2;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
-        --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
+        --color-code-background: #2b2b2b;
+  --color-code-foreground: #f8f8f2;
   
       }
     }
@@ -191,7 +191,6 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
-  
   <span class="sidebar-brand-text">UW API  documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
@@ -222,6 +221,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../scripts/index.html">Scripts</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Bots</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Bots</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setupPython.html">Setup Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="programOverview.html">Program Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="programSafety.html">Program Safety</a></li>
 <li class="toctree-l2"><a class="reference internal" href="performance.html">Performance</a></li>
@@ -274,6 +274,10 @@
 The shared library is distributed together with the game.</p>
 <p>The uwapi repository contains c/c++ headers for all functions and structures provided by the library.
 Furthermore, it contains convenient wrappers for Python and C# for easy start.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Do <em>not</em> use Flatpak, or Snap, or any other containerization for Steam on Linux.</p>
+</div>
 <section id="steam-appid-txt">
 <h2>Steam Appid Txt<a class="headerlink" href="#steam-appid-txt" title="Link to this heading">¶</a></h2>
 <div class="admonition important">
@@ -282,18 +286,18 @@ Furthermore, it contains convenient wrappers for Python and C# for easy start.</
 </div>
 <p>The file <code class="docutils literal notranslate"><span class="pre">steam_appid.txt</span></code> tells Steam that this is developer copy of the game.
 It allows running multiple processes of the game simultaneously, and to start the programs directly from outside the Steam.
-This allows you to retain full control over your bot program - it makes it possible to develop and debug it from inside your IDE.
+This allows you to start and debug your bot program from inside your IDE.
 You may also start the game client, game server, built-in AI, or any other associated programs from your terminal.
 You will find the <code class="docutils literal notranslate"><span class="pre">steam_appid.txt</span></code> in the uwapi repository.
 Copy it into the <code class="docutils literal notranslate"><span class="pre">bin</span></code> folder, next to the game executable.</p>
 <p>It is recommended to remove the <code class="docutils literal notranslate"><span class="pre">steam_appid.txt</span></code> when you are done with your AI/bot program.
-The file may cause corruptions when the game is updated.</p>
+Presence of the file may cause corruption of some files when the game is updated.</p>
 </section>
 <section id="game-install-path">
 <h2>Game Install Path<a class="headerlink" href="#game-install-path" title="Link to this heading">¶</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>If you installed Unnatural World in non-default location, define environment variable <code class="docutils literal notranslate"><span class="pre">UNNATURAL_ROOT</span></code> to the directory containing the library.</p>
+<p>If you installed Unnatural World in non-default location, define environment variable <code class="docutils literal notranslate"><span class="pre">UNNATURAL_ROOT</span></code> pointing to the <code class="docutils literal notranslate"><span class="pre">bin</span></code> directory containing the library.</p>
 </div>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
@@ -314,6 +318,7 @@ Linux</label><div class="sd-tab-content docutils">
 This will show you additional information about any single thing you select in the game.
 For example: unit id, its state, position (both index and 3D coordinates), etc.
 It shows at the bottom of the left panel.</p>
+<p>Enable <em>Detailed tooltips</em> too.</p>
 </section>
 </section>
 
@@ -322,12 +327,12 @@ It shows at the bottom of the left panel.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="programOverview.html">
+          <a class="next-page" href="setupPython.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Program Overview</div>
+                <div class="title">Setup Python</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -390,7 +395,7 @@ It shows at the bottom of the left panel.</p>
 </div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>

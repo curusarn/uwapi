@@ -5,33 +5,33 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Entities &amp; Components" href="entities.html" /><link rel="prev" title="Map" href="map.html" />
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
         <title>Prototypes - UW API documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=acfd86a5" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
 
 
 <style>
   body {
-    --color-code-background: #f8f8f8;
-  --color-code-foreground: black;
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
   
   }
   @media not print {
     body[data-theme="dark"] {
-      --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
+      --color-code-background: #2b2b2b;
+  --color-code-foreground: #f8f8f2;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
-        --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
+        --color-code-background: #2b2b2b;
+  --color-code-foreground: #f8f8f2;
   
       }
     }
@@ -191,7 +191,6 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
-  
   <span class="sidebar-brand-text">UW API  documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
@@ -222,6 +221,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../scripts/index.html">Scripts</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../bots/index.html">Bots</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Bots</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../bots/setup.html">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bots/setupPython.html">Setup Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bots/programOverview.html">Program Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bots/programSafety.html">Program Safety</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bots/performance.html">Performance</a></li>
@@ -320,6 +320,28 @@ There are no restrictions on units that the player may control, if they get hold
 Tags are short strings (mapped to unique ids), that are provided by the game/map/mods to help programs understand the nuances of that particular prototype.
 Tags are <em>not</em> used by the game, except by the built-in AI/bot, which uses tags to alter behavior of some units.
 Tags may be used by both Bots and Scripts.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ambush</span></code> - walks over additional terrain types.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">artillery</span></code> - longer range than most.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">assault</span></code> - good for front-line combat.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">harassment</span></code> - good for hit-and-run attacks, especially targeting workers.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">home</span></code> - the center of your base. dont let it die.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">miner</span></code> - generates resources, usually from ore deposits.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">navy</span></code> - moves on water only.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">noncombat</span></code> - not intended for combat, even if it has an attack/explosion.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nonprogression</span></code> - an alternative for another prototype (this tag is used to break cyclic dependencies).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">production</span></code> - produces more units.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">research</span></code> - produces upgrades.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scout</span></code> - fast and cheap, good as a scout.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">siege</span></code> - designed for destroying buildings.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">splash</span></code> - area-of-effect attack/explosion.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">suicidal</span></code> - sacrifices itself when attacking.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tank</span></code> - defensive unit with life above typical.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tower</span></code> - stationary defensive structure.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">volatile</span></code> - may damage own/allied units.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wall</span></code> - stationary path blocking structure.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">worker</span></code> - carries resources, automatic control by logistics planning.</p></li>
+</ul>
 </section>
 </section>
 
@@ -400,7 +422,7 @@ Tags may be used by both Bots and Scripts.</p>
 </div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>

@@ -3,16 +3,16 @@ Entities & Components
 
 .. epigraph::
 
-	.. image:: /_static/ecs.svg
-		:alt: ECS Diagram from Wikipedia
-		:height: 100pt
-		:align: right
+   .. image:: /_static/ecs.svg
+      :alt: ECS Diagram from Wikipedia
+      :height: 100pt
+      :align: right
 
-	"Entity–component–system (ECS) is a software architectural pattern mostly used in video game development for the representation of game world objects. An ECS comprises entities composed from components of data, with systems which operate on the components.
+   "Entity–component–system (ECS) is a software architectural pattern mostly used in video game development for the representation of game world objects. An ECS comprises entities composed from components of data, with systems which operate on the components.
 
-	ECS follows the principle of composition over inheritance, meaning that every entity is defined not by a type hierarchy, but by the components that are associated with it. Systems act globally over all entities which have the required components."
+   ECS follows the principle of composition over inheritance, meaning that every entity is defined not by a type hierarchy, but by the components that are associated with it. Systems act globally over all entities which have the required components."
 
-	— `Wikipedia - Entity Component System <https://en.wikipedia.org/wiki/Entity_component_system>`_
+   — `Wikipedia - Entity Component System <https://en.wikipedia.org/wiki/Entity_component_system>`_
 
 Entity
 ------
@@ -20,10 +20,10 @@ In Unnatural Worlds specifically, each entity is identified by its unique 32-bit
 These ids are assigned by the server, and client cannot predict the values.
 
 .. note::
-	An id may be reused, especially in longer game.
+   An id may be reused, especially in longer game.
 
 .. note::
-	Some entities and/or components are synchronized only with the owner of the entity.
+   Some entities and/or components are synchronized only with the owner of the entity.
 
 Proto Component
 ---------------
@@ -43,7 +43,7 @@ Controller Component
 In case that multiple players belong to the same force, the last player to give any orders to this entity will become the controller of the entity.
 
 .. note::
-	Controllers are not yet implemented.
+   Controllers are not yet implemented.
 
 Position Component
 ------------------
@@ -73,7 +73,7 @@ Amount of mana of the unit (or building).
 
 Move Component
 --------------
-Contains information about current movement of the unit.
+Timestamp of when the unit finishes its current movement.
 Information is available for the next neighboring tile only.
 
 Aim Component
@@ -117,7 +117,7 @@ This entity represents a signal sent by an ally.
 
 - ``Attention`` - generic warning signal.
 - ``Attack`` - request to attack this location.
-- ``Defend`` - request to quard this location.
+- ``Defend`` - request to guard this location.
 - ``Rally`` - prepare troops there and await further signals.
 - ``Build`` - build base in this location.
 - ``Evacuate`` - request to leave this area.
@@ -141,11 +141,11 @@ This component contains private information about the force.
 
 Foreign Policy Component
 ------------------------
-This entity declares the policy between two forces.
+This entity declares a policy between two forces.
 
 Diplomacy Proposal Component
 ----------------------------
 This entity contains a proposal of a policy to another force.
 
 .. note::
-	Diplomacy is not yet implemented.
+   Diplomacy is not yet implemented.

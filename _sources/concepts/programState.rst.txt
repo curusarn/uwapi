@@ -8,7 +8,12 @@ Game State
 - ``None`` - the game is initializing.
 - ``Session`` - players are connecting, and are negotiating the map and other settings. An admin will start the game.
 - ``Preparation`` - countdown before the game actually starts. This alerts players to get ready.
+- ``Starting`` - briefly used between the transition from ``Preparation`` to ``Game``.
+  This state is best used for initialization - all forces already know their real race (in case of random), and their starting positions.
 - ``Game`` - game is in progress.
+- ``Pause`` - some players have requested the game to pause. It will return to the ``Game`` state when all players are ready again.
+- ``CutscenePaused`` - the game is playing a cut-scene, and game time is stopped. It will return to the ``Game`` state when the cut-scene finishes.
+- ``CutsceneRunning`` - the game is playing a cut-scene, and simulation continues. It will return to the ``Game`` state when the cut-scene finishes.
 - ``Finish`` - game is over. Winners and defeated have been declared.
 
 Map State
@@ -22,7 +27,7 @@ Map State
 - ``Error`` - loading a map has encountered an error. Loading is cancelled.
 
 .. warning::
-	Do *not* access any of the map-related functions unless the map is ``Loaded``.
+   Do *not* access any of the map-related functions unless the map is ``Loaded``.
 
 Accessing any of the map-related functions when the map is *not* ``Loaded`` will crash the game, since all data are loaded concurrently.
 
@@ -41,5 +46,5 @@ Ticks are the measurement of time in the game simulation.
 When ticks are ticking, units are moving.
 When tick is the same, no units are moving, no one is shooting, etc.
 
-There is 20 ticks per second, by default.
+There are 20 ticks per second, by default.
 This is provided as a constant in the api.

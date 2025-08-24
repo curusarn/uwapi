@@ -28,7 +28,7 @@ Unit Prototype
 Both buildings and units are treated as units in the game.
 
 .. note::
-	Some neutral objects, such as trees, rocks, ore deposits, etc. are units too.
+   Some neutral objects, such as trees, rocks, ore deposits, etc. are units too.
 
 The prototype contains combat related properties, movement speeds or building radius, a list of available recipes, and a list of applicable upgrades.
 Additionally, there are several boolean properties, which modify behavior or requirements of the unit/building.
@@ -55,3 +55,24 @@ All prototypes may have associated some tags with them.
 Tags are short strings (mapped to unique ids), that are provided by the game/map/mods to help programs understand the nuances of that particular prototype.
 Tags are *not* used by the game, except by the built-in AI/bot, which uses tags to alter behavior of some units.
 Tags may be used by both Bots and Scripts.
+
+- ``ambush`` - walks over additional terrain types.
+- ``artillery`` - longer range than most.
+- ``assault`` - good for front-line combat.
+- ``harassment`` - good for hit-and-run attacks, especially targeting workers.
+- ``home`` - the center of your base. dont let it die.
+- ``miner`` - generates resources, usually from ore deposits.
+- ``navy`` - moves on water only.
+- ``noncombat`` - not intended for combat, even if it has an attack/explosion.
+- ``nonprogression`` - an alternative for another prototype (this tag is used to break cyclic dependencies).
+- ``production`` - produces more units.
+- ``research`` - produces upgrades.
+- ``scout`` - fast and cheap, good as a scout.
+- ``siege`` - designed for destroying buildings.
+- ``splash`` - area-of-effect attack/explosion.
+- ``suicidal`` - sacrifices itself when attacking.
+- ``tank`` - defensive unit with life above typical.
+- ``tower`` - stationary defensive structure.
+- ``volatile`` - may damage own/allied units.
+- ``wall`` - stationary path blocking structure.
+- ``worker`` - carries resources, automatic control by logistics planning.

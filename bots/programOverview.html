@@ -3,35 +3,35 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Program Safety" href="programSafety.html" /><link rel="prev" title="Setup" href="setup.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Program Safety" href="programSafety.html" /><link rel="prev" title="Setup Python" href="setupPython.html" />
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2024.08.06 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
         <title>Program Overview - UW API documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=acfd86a5" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=25af2a20" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
 
 
 <style>
   body {
-    --color-code-background: #f8f8f8;
-  --color-code-foreground: black;
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
   
   }
   @media not print {
     body[data-theme="dark"] {
-      --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
+      --color-code-background: #2b2b2b;
+  --color-code-foreground: #f8f8f2;
   
     }
     @media (prefers-color-scheme: dark) {
       body:not([data-theme="light"]) {
-        --color-code-background: #202020;
-  --color-code-foreground: #d0d0d0;
+        --color-code-background: #2b2b2b;
+  --color-code-foreground: #f8f8f2;
   
       }
     }
@@ -191,7 +191,6 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
-  
   <span class="sidebar-brand-text">UW API  documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
@@ -222,6 +221,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../scripts/index.html">Scripts</a></li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Bots</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of Bots</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setupPython.html">Setup Python</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Program Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="programSafety.html">Program Safety</a></li>
 <li class="toctree-l2"><a class="reference internal" href="performance.html">Performance</a></li>
@@ -271,46 +271,79 @@
           <section id="program-overview">
 <h1>Program Overview<a class="headerlink" href="#program-overview" title="Link to this heading">¶</a></h1>
 <p>High-level look at basic bot program.</p>
-<section id="program-lifecycle">
-<h2>Program Lifecycle<a class="headerlink" href="#program-lifecycle" title="Link to this heading">¶</a></h2>
-<p>At start, you are in full control of the program.</p>
-<section id="initialization">
-<h3>Initialization<a class="headerlink" href="#initialization" title="Link to this heading">¶</a></h3>
-<ul class="simple">
-<li><p>You need to change current working directory to the <code class="docutils literal notranslate"><span class="pre">bin</span></code> directory in the game installation.
-Without it, the game will be unable to load maps and assets, even if it might load the shared library.</p></li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Do <em>not</em> change current working directory once configured.</p>
-</div>
-<ul class="simple">
-<li><p>Next, you load the shared library.</p></li>
-</ul>
+<section id="accessor-objects">
+<h2>Accessor Objects<a class="headerlink" href="#accessor-objects" title="Link to this heading">¶</a></h2>
+<p>These are globally accessible objects that you use to interact with the game.</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" data-sync-group="language" data-sync-id="python" for="sd-tab-item-0">
 Python</label><div class="sd-tab-content docutils">
-<p>TODO</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">uw_admin</span></code> - managing the game server and other players; requires administrator privilege on the game server.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uw_commands</span></code> - sending commands and orders to your units, and queries for current orders.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uw_events</span></code> - register your callbacks here.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uw_game</span></code> - managing game connection, and other settings.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uw_map</span></code> - queries about tiles, clusters, etc; data that do <em>not</em> change during game.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uw_prototypes</span></code> - access to all prototypes; they do <em>not</em> change during game.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uw_world</span></code> - list all entities, and some additional queries for data that do change during game.</p></li>
+</ul>
 </div>
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" data-sync-group="language" data-sync-id="csharp" for="sd-tab-item-1">
 C#</label><div class="sd-tab-content docutils">
-<p>The library is automatically loaded when you first access the global <code class="docutils literal notranslate"><span class="pre">Game</span></code> object.
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Admin</span></code> - managing the game server and other players; requires administrator privilege on the game server.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Commands</span></code> - sending commands and orders to your units, and queries for current orders.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Events</span></code> - register your callbacks here.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Game</span></code> - managing game connection, and other settings.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Map</span></code> - queries about tiles, clusters, etc; data that do <em>not</em> change during game.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Prototypes</span></code> - access to all prototypes; they do <em>not</em> change during game.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">World</span></code> - list all entities, and some additional queries for data that do change during game.</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="program-lifetime">
+<h2>Program Lifetime<a class="headerlink" href="#program-lifetime" title="Link to this heading">¶</a></h2>
+<p>At start, you are in full control of the program.</p>
+<section id="initialization">
+<h3>Initialization<a class="headerlink" href="#initialization" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Change current working directory to the <code class="docutils literal notranslate"><span class="pre">bin</span></code> directory in the game installation.
+Without it, the game will be unable to load maps and assets (even if it might happen to load the shared library).</p></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do <em>not</em> change current working directory afterwards.</p>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Load the shared library.</p></li>
+</ol>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="language" data-sync-id="python" for="sd-tab-item-2">
+Python</label><div class="sd-tab-content docutils">
+<p>Class UwapiLibrary is responsible for loading the library.
+This is done in the <code class="docutils literal notranslate"><span class="pre">main.py</span></code>.</p>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="language" data-sync-id="csharp" for="sd-tab-item-3">
+C#</label><div class="sd-tab-content docutils">
+<p>The library is automatically loaded when you first access the global <code class="docutils literal notranslate"><span class="pre">Events</span></code> object.
 This happens inside the <code class="docutils literal notranslate"><span class="pre">Bot</span></code> constructor.</p>
 </div>
 </div>
-<ul class="simple">
-<li><p>Setup all your callbacks now.
+<ol class="arabic simple" start="3">
+<li><p>Setup all callbacks now.
 You may also set some parameters for the connection.</p></li>
-</ul>
+</ol>
 </section>
 <section id="connect">
 <h3>Connect<a class="headerlink" href="#connect" title="Link to this heading">¶</a></h3>
 <p>There are multiple ways to connect to a game server.
 The usual approach is to first try reconnecting, in case the game has crashed previously.
-Second, you connect to an existing server using the parameters provided in the environment variables, if any.
-Third, you spin up your own server.</p>
+Second, you connect to an existing game server using parameters provided in the environment, if any.
+Third, you spin up your own game server.</p>
 <p>Alternatively, you may implement your own logic to determine how to connect to a server.</p>
 <p>No matter the method, the game will now take control over the program.
 Your program is blocked until the network connection closes.
@@ -326,7 +359,7 @@ This is where you keep track of the state of the game, and perform any of your a
 <p>The <code class="docutils literal notranslate"><span class="pre">Update</span></code> callback, and some others, may be called before the game has actually started (eg. in <code class="docutils literal notranslate"><span class="pre">Session</span></code>), or when the map is not yet <code class="docutils literal notranslate"><span class="pre">Loaded</span></code>.
 Be mindful of what operations are valid in these circumstances.</p>
 </div>
-<p>You may prematurely close the connection with the <code class="docutils literal notranslate"><span class="pre">Disconnect</span></code> function.
+<p>You may prematurely close the connection with the <code class="docutils literal notranslate"><span class="pre">disconnect</span></code> function.
 This will do a graceful closing of the connection, that is, you will get some additional callbacks called.
 After that the connect function will return.</p>
 </section>
@@ -387,14 +420,14 @@ It is recommended to wait several ticks between these kinds of actions, to avoid
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="setup.html">
+          <a class="prev-page" href="setupPython.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Setup</div>
+                <div class="title">Setup Python</div>
                 
               </div>
             </a>
@@ -429,7 +462,8 @@ It is recommended to wait several ticks between these kinds of actions, to avoid
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Program Overview</a><ul>
-<li><a class="reference internal" href="#program-lifecycle">Program Lifecycle</a><ul>
+<li><a class="reference internal" href="#accessor-objects">Accessor Objects</a></li>
+<li><a class="reference internal" href="#program-lifetime">Program Lifetime</a><ul>
 <li><a class="reference internal" href="#initialization">Initialization</a></li>
 <li><a class="reference internal" href="#connect">Connect</a></li>
 <li><a class="reference internal" href="#game-loop">Game Loop</a></li>
@@ -455,7 +489,7 @@ It is recommended to wait several ticks between these kinds of actions, to avoid
 </div><script src="../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
