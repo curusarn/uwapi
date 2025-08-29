@@ -47,7 +47,10 @@ class Bot:
         uw_game.set_player_name("bot-py")
         uw_game.player_join_force(0)  # create new force
         uw_game.set_force_color(1, 0, 0)
-        # todo choose race
+        # Set race to technocracy
+        technocracy_id = uw_prototypes.hashString("technocracy")
+        if technocracy_id != 0:
+            uw_game.set_force_race(technocracy_id)
 
     def on_update(self, stepping: bool):
         if uw_game.game_state() == GameState.Session:
