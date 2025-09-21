@@ -1,5 +1,35 @@
 # CLAUDE.md - Important Instructions for Claude
 
+## PowerShell Interoperability from WSL
+You can run PowerShell commands from within WSL using:
+- `powershell.exe -NoProfile -Command "command here"`
+- `pwsh.exe` may not be available, but `powershell.exe` works
+- Example: `powershell.exe -NoProfile -Command "Get-Process | Select-Object -First 3"`
+- This allows interaction between WSL and Windows environments
+
+## Running the Bot via PowerShell
+To run the Unnatural Worlds bot from WSL:
+```bash
+powershell.exe -NoProfile -Command "Set-Location '\\\\wsl.localhost\\Ubuntu\\home\\simon\\uwapi\\python'; python .\\main_juggernaut.py"
+```
+This command:
+1. Uses PowerShell from WSL to navigate to the WSL path
+2. Runs Python using the Windows Python installation
+3. Launches the game automatically with the bot
+
+## Log File Locations
+Bot logs are stored in:
+- **Main Python log**: `/mnt/c/Program Files (x86)/Steam/steamapps/common/Unnatural Worlds/bin/python.log`
+  - Contains all bot console output (construction placement, unit production, etc.)
+- **Game client log**: `/mnt/c/Program Files (x86)/Steam/steamapps/common/Unnatural Worlds/unnatural-worlds.log`
+- **Server log**: `/mnt/c/Program Files (x86)/Steam/steamapps/common/Unnatural Worlds/unnatural-server.log`
+- **Bot AI log**: `/mnt/c/Program Files (x86)/Steam/steamapps/common/Unnatural Worlds/unnatural-bot.log`
+
+To view bot output in real-time:
+```bash
+tail -f "/mnt/c/Program Files (x86)/Steam/steamapps/common/Unnatural Worlds/bin/python.log"
+```
+
 ## Critical Rules
 
 ### NEVER GUESS - Always Check Existing Code
@@ -113,3 +143,4 @@ Important tags for identifying entities:
 - `research`: produces upgrades
 - `worker`: carries resources
 - `nonprogression`: alternative prototype
+- remember sometimes it just takes a few tries to start the game
